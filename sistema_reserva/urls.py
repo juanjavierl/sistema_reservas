@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalogo/', include('sistema_reserva.app.catalogo.urls')),
     path('clientes/', include('sistema_reserva.app.cliente.urls')),
+    path('', include('sistema_reserva.app.inicio.urls')),
 ]   

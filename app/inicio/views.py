@@ -3,9 +3,12 @@ import datetime
 # Create your views here.
 def inicio(request):
     fecha_hora = datetime.datetime.now()
-    nombre = "Administrador"
+    nombre = "User"
+    nombres = ['jhon', 'ana','pepe']
+    #print(nombres)
     datos = {
         'fecha_hora':fecha_hora,
-        'nombre':nombre
+        'nombre':nombre,
+        'nombres':nombres
         }
     return render(request, 'base.html',datos)

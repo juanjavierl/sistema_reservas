@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Inicio{% endblock %}</title>
+    {% block css %}
+    {#aqui viene mis archivos css #}
+    {% endblock %}
 </head>
 <body>
-    <h1>Template Base</h1>
+    <h1>Pagina de Inicio</h1>
 
     {% block content %}
-    fecha y hora del servidor: {{fecha_hora}}
-    usuerio: {{nombre}}
+        fecha y hora del servidor: {{fecha_hora|date:"d-m-Y"}}
+        {# setencia if #}
+        {% if nombre == "admin" %}
+                Administrador: {{nombre|upper}}
+            {% else %}
+                Usuario: {{nombre|upper}}
+        {% endif %}
+        <hr>
+
+
+
+        {% for n in nombres %}
+            <li>{{forloop.revcounter}} {{n}}</li>
+        {% empty %}
+            <li>No hay registros</li>
+        {% endfor %}
+
+        cantidad de nombre :{{nombres|length}}
     {% endblock %}
 
     {% block footer %}
@@ -18,5 +37,9 @@
     <p>Gracias por vicitar mi sitio web.</p>
     {% endblock %}
 
+
+    {% block js %}
+    {#aqui viene mis archivos css #}
+    {% endblock %}
 </body>
 </html>

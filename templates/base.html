@@ -10,30 +10,35 @@
 </head>
 <body>
     <h1>Pagina de Inicio</h1>
-
-    {% block content %}
-        fecha y hora del servidor: {{fecha_hora|date:"d-m-Y"}}
+    fecha y hora del servidor: {{fecha_hora|date:"d-m-Y"}}
         {# setencia if #}
         {% if nombre == "admin" %}
                 Administrador: {{nombre|upper}}
             {% else %}
                 Usuario: {{nombre|upper}}
-        {% endif %}
-        <hr>
+        {% endif %} 
+    <!--<li><a href="/catalogo/productos">Listar Productos</a></li>-->
+    <li><a href="{% url 'productos' %}">Listar Productos</a></li>
+    <li><a href="/">Inicio</a></li>
+    <!--
+QUE HEREDEN DE LA PLANTILLA BASE
+CREAR UNA RUTA INICIO QUE ENVIE AL INICIO      
+CREAR UNA RUTA CONTACTO QUE ENVIE A OTRO HTML
+CREAR UNA RUTA MISION DE ENVIE A UN HTML DE MISION.HTEML
 
-
-
+    -->
+    <hr>
+    {% block content %}
         {% for n in nombres %}
-            <li>{{forloop.revcounter}} {{n}}</li>
-        {% empty %}
-            <li>No hay registros</li>
+                <li>{{forloop.revcounter}} {{n}}</li>
+            {% empty %}
+                <li>No hay registros</li>
         {% endfor %}
 
         cantidad de nombre :{{nombres|length}}
     {% endblock %}
-
-    {% block footer %}
     <hr>
+    {% block footer %}
     <p>Gracias por vicitar mi sitio web.</p>
     {% endblock %}
 
